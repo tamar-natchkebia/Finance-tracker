@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker | Apple Green Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1 class="brand"> Finance Tracker</h1>
+                <div class="date-badge" id="current-month">FEBRUARY 2026</div>
+            </div>
+            <div class="main-balance-card">
+                <span class="label">Total Balance</span>
+                <h2 id="net-balance">$0.00</h2>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-box dark">
+                <span class="stat-label">Monthly Income</span>
+                <h3 id="month-saved" class="lime-text">$0.00</h3>
+            </div>
+            <div class="stat-box dark">
+                <span class="stat-label">Monthly Spend</span>
+                <h3 id="month-spent" class="white-text">$0.00</h3>
+            </div>
+            <div class="stat-box lime">
+                <span class="stat-label dark-label">Net Savings</span>
+                <h3 id="total-saved" class="black-text">$0.00</h3>
+            </div>
+            <div class="stat-box lime">
+                <span class="stat-label dark-label">Total Spend</span>
+                <h3 id="total-spent" class="black-text">$0.00</h3>
+            </div>
+        </section>
+
+        <div class="content-split">
+            <aside class="entry-panel">
+                <h3 class="panel-title">New Entry</h3>
+                <form id="transaction-form">
+                    <div class="type-toggle">
+                        <button type="button" class="type-btn active" id="btn-expense" onclick="setTransactionType('expense')">Expense</button>
+                        <button type="button" class="type-btn" id="btn-saving" onclick="setTransactionType('saving')">Saving</button>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Purpose</label>
+                        <input type="text" id="desc" placeholder="What is this for?" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Category</label>
+                        <div class="select-wrapper">
+                            <select id="category">
+                                <option value="Food & Drinks">Food & Drinks</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Housing">Housing & Bills</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Health">Health & Medication</option>
+                                <option value="Self Care">Self Care</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Subscriptions">Subscriptions</option>
+                                <option value="Education">Education</option>
+                                <option value="Gifts">Gifts</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Amount</label>
+                        <div style="display: flex; gap: 10px;">
+                            <div class="select-wrapper" style="flex: 1;">
+                                <select id="currency-select">
+                                    <option value="USD">$ USD</option>
+                                    <option value="EUR">€ EUR</option>
+                                    <option value="CAD">C$ CAD</option>
+                                </select>
+                            </div>
+                            <input type="text" id="amount" placeholder="0.00" style="flex: 2;" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Continue</button>
+                </form>
+            </aside>
+
+            <section class="history-panel">
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+                <div class="history-header">
+                    <h3 class="panel-title">History</h3>
+                    <div class="history-controls">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-field" placeholder="Search...">
+                        </div>
+                        <div class="select-wrapper">
+                            <select id="month-filter">
+                                <option value="all">All Time</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <ul id="ledger-list" class="ledger"></ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon"><i class="fas fa-trash-can"></i></div>
+            <h3>Remove Entry?</h3>
+            <p>Confirm to delete this transaction.</p>
+            <div class="modal-btns">
+                <button id="modal-cancel" class="m-btn btn-sec">Cancel</button>
+                <button id="modal-confirm" class="m-btn btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
