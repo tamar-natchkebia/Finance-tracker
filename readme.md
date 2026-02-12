@@ -5,7 +5,7 @@ A premium, minimalist dashboard designed for users who value privacy, speed, and
 ## screenshots
 ![Main Page](screenshots/home.png)
 ![Mian Page](screenshots/home1.png)
-![Deletr Button](screenshots/delete.png)
+![Delete Button](screenshots/delete.png)
 
 ## 🚀 Features
 - **100% Privacy:** No databases, no APIs, and no third-party trackers. All data is stored in your browser's `localStorage`.
