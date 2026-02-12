@@ -1,4 +1,4 @@
-# 🍏 Finance Tracker | Neobrutalist Edition
+# 🍏 Finance Tracker 
 
 A premium, minimalist dashboard designed for users who value privacy, speed, and clean aesthetics. This tool helps you visualize your spending without ever uploading your data to the cloud.
 
