@@ -21,12 +21,11 @@ A premium, minimalist dashboard designed for users who value privacy, speed, and
 - **Typography:** Josefin Sans
 
 ## 📦 Installation & Usage
-No build step required. This is a pure "Buy once, own forever" codebase.
+No build step required. 
 
 1. Clone the repository: 
    `git clone https://github.com/tamar-natchkebia/finance-tracker.git`
 2. Open `index.html` in any modern web browser.
-3. Start tracking your wealth.
 
 ## 🔒 Security Policy
 This application operates entirely on the client-side. 
